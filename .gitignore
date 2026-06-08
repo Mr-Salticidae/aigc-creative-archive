@@ -1,0 +1,8 @@
+# Local temporary files
+Thumbs.db
+Desktop.ini
+*.tmp
+*.bak
+
+# Keep downloaded zip packages out of the project repo.
+*.zip
