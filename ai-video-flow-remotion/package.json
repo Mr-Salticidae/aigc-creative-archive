@@ -1,0 +1,27 @@
+{
+  "name": "ai-video-flow-remotion",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "start": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "generate:voiceover": "tsx scripts/generate-voiceover.ts",
+    "still": "remotion still src/index.ts AiVideoFlow out/ai-video-flow-frame30.png --frame=30 --scale=0.25",
+    "render": "remotion render src/index.ts AiVideoFlow out/ai-video-flow.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.469",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.469"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.5.4"
+  }
+}

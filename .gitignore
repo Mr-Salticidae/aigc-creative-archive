@@ -6,3 +6,8 @@ Desktop.ini
 
 # Keep downloaded zip packages out of the project repo.
 *.zip
+
+# Node / Remotion local dependencies and render outputs
+**/node_modules/
+**/out/
+**/.env
