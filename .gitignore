@@ -11,3 +11,10 @@ Desktop.ini
 **/node_modules/
 **/out/
 **/.env
+
+# Taowhale (鲸海拾贝) website lives in its own repo (whalesea-site),
+# and these are superseded local iterations — keep them out of this archive.
+whalesea-site/
+鲸海拾贝官网/
+鲸海拾贝官网V2-React/
+鲸海拾贝官网-部署包/
