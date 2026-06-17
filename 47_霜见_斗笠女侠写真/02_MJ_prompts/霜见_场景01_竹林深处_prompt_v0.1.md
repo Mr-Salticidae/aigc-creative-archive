@@ -3,7 +3,8 @@ tags: [类型/prompt]
 ---
 # 霜见 · 场景01 竹林深处 · prompt v0.1（四层叠用首发）
 
-> ℹ️ **oref-on 路径(2026-06-17 修正)**:oref 高方差但可用——R3 已抽到合格图。用本版需**抽卡 8-12 张 + 逐张过素颜/无异常验收**。
+> ℹ️ **oref-on 路径(2026-06-17 修正)**:oref 高方差但可用——R3/R4 已抽到合格图。需**抽卡 8-12 张 + 过素颜/无异常验收**。
+> ⚙️ **oref 仅 v7,v7 无 hd;sref/oref 点图挂载不写进 prompt**(见 [[oref与sref的工具版本与挂载方式]])。
 > 想要稳定无塑料的基线见 `霜见_场景01_竹林深处_prompt_v0.2_无oref.md`(oref-off)。两条路径并存,按需选。
 
 > 工具:Midjourney v8.1
@@ -23,7 +24,7 @@ tags: [类型/prompt]
 ## 场景 A · 竹林深处 · 持剑独立(推荐首跑)
 
 ```
-Museum level art portrait photography, a lone female swordswoman standing deep in a misty bamboo grove, holding a sheathed sword loosely at her side, East Asian woman, delicate oval face, soft jawline, cool porcelain skin, almond slightly drooping dark brown dewy eyes, distant mountain eyebrows, gentle light rose matte lips, cold ethereal elegant temperament. Woven bamboo douli hat tilted back with a thin crimson cord, long dark hair with loose breeze lifted strands, flowing moon white silk hanfu robe, deep ink black sash, red cord jade pendant at collar. Three quarter view looking quietly aside, medium shot, foreground bamboo framing, large negative space, atmospheric depth. 35mm film, deep shadow gradient, cool moon white and ink black tones with crimson accent, Vogue China editorial style, cinematic still, fine art photography. --sref <SREF_URL> --sw 100 --oref <OREF_URL> --ow 100 --no text, watermark, logo, blurry --ar 3:4 --raw --hd
+Museum level art portrait photography, a lone female swordswoman standing deep in a misty bamboo grove, holding a sheathed sword loosely at her side, East Asian woman, delicate oval face, soft jawline, cool porcelain skin, almond slightly drooping dark brown dewy eyes, distant mountain eyebrows, gentle light rose matte lips, cold ethereal elegant temperament. Woven bamboo douli hat tilted back with a thin crimson cord, long dark hair with loose breeze lifted strands, flowing moon white silk hanfu robe, deep ink black sash, red cord jade pendant at collar. Three quarter view looking quietly aside, medium shot, foreground bamboo framing, large negative space, atmospheric depth. 35mm film, deep shadow gradient, cool moon white and ink black tones with crimson accent, Vogue China editorial style, cinematic still, fine art photography. --ar 3:4 --v 7 --style raw --no text, watermark, logo, blurry
 ```
 
 ## 场景 B · 雪原独行(苍茫远景)

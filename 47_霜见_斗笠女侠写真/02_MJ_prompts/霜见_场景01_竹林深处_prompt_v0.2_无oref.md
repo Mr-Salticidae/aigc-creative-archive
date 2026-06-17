@@ -16,14 +16,14 @@ tags: [类型/prompt]
 2. **骨相 + 气质** → 满配[[东方美人五官堆叠基础句]]词块(下方已嵌)
 3. **辨识度** → 装扮签名:斗笠 + 月白 + 墨黑 + 红绳玉佩(下方已嵌)
 
-出图前只需上传 R2 静物图取 URL → 填 `<SREF_URL>`。**不再需要 oref。**
+出图前在编辑器**点击 R2 静物图挂 sref**(UI 调权重),**不写进 prompt 正文**(见 [[oref与sref的工具版本与挂载方式]])。oref-off 无 oref,可留 v8.1 + `--raw --hd`。**不再需要 oref。**
 
 ---
 
 ## 场景 A · 竹林深处 · 持剑独立(推荐首跑)
 
 ```
-Museum level art portrait photography, a lone female swordswoman standing deep in a misty bamboo grove, holding a sheathed sword loosely at her side, an east asian woman, delicate oval face, soft jawline, slightly raised cheekbones, cool porcelain skin with faint natural crimson, almond shaped slightly drooping dark brown eyes with a dewy gaze, distant mountain eyebrows, small delicate nose bridge, gentle light rose matte lips, a cold and ethereal elegant temperament, a refined atmosphere. Woven bamboo douli hat tilted back with a thin crimson cord, long dark hair with loose breeze lifted strands, flowing moon white silk hanfu robe, deep ink black sash, red cord jade pendant at collar. Three quarter view looking quietly aside, medium shot, foreground bamboo framing, large negative space, atmospheric depth. 35mm film, deep shadow gradient, cool moon white and ink black tones with crimson accent, Vogue China editorial style, cinematic still, fine art photography. --sref <SREF_URL> --sw 100 --no text, watermark, logo, blurry --ar 3:4 --raw --hd
+Museum level art portrait photography, a lone female swordswoman standing deep in a misty bamboo grove, holding a sheathed sword loosely at her side, an east asian woman, delicate oval face, soft jawline, slightly raised cheekbones, cool porcelain skin with faint natural crimson, almond shaped slightly drooping dark brown eyes with a dewy gaze, distant mountain eyebrows, small delicate nose bridge, gentle light rose matte lips, a cold and ethereal elegant temperament, a refined atmosphere. Woven bamboo douli hat tilted back with a thin crimson cord, long dark hair with loose breeze lifted strands, flowing moon white silk hanfu robe, deep ink black sash, red cord jade pendant at collar. Three quarter view looking quietly aside, medium shot, foreground bamboo framing, large negative space, atmospheric depth. 35mm film, deep shadow gradient, cool moon white and ink black tones with crimson accent, Vogue China editorial style, cinematic still, fine art photography. --ar 3:4 --raw --hd --no text, watermark, logo, blurry
 ```
 
 ## 场景 B · 雪原独行 / 场景 C · 客栈灯下

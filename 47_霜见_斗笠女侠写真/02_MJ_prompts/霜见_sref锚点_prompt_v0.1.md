@@ -38,8 +38,8 @@ Museum level fine art landscape photography, a misty bamboo grove at dawn, tall 
 1. **两条都抽 4-8 张**,纯 prompt,**不加任何 --sref / --oref**。
 2. **选锚点**:挑调色/胶片质感最像 R1、且构图最干净中性的那张。优先候选 A(配色全)。
 3. 选中图存入 `03_出图记录/R2_sref锚点/`,**标注"专用于提 sref,不作他用"**。
-4. **提 sref**:把该图上传 MJ,用其 URL 作 `--sref <url>`(或建成 Style code)。人物类 `--sw` 从 80-150 试(见角色一致性金字塔)。
-5. 之后**每一张霜见**= `风格关键词 + --sref <锚点> + --oref <R1脸> + 描述词锁定(斗笠+月白+墨黑+红绳玉佩) + 场景`。
+4. **挂 sref**:在编辑器**点击该图**设为 style reference,UI 调权重(不写 `--sref url`,见 [[oref与sref的工具版本与挂载方式]])。
+5. 之后**每一张霜见**= `风格关键词 + 描述词锁定(斗笠+月白+墨黑+红绳玉佩) + 场景`,在 UI 挂 sref(锁脸时再挂 oref,切 v7)。
 
 ## 关联
 
