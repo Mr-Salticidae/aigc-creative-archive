@@ -113,7 +113,7 @@ def page2():
     img = base(); d = ImageDraw.Draw(img)
     pill(d)
     coral_dot_label(d, 168, "先破一个误解")
-    d.text((M, 228), "半夜醒一下,≠失眠", font=fb(74), fill=INK)
+    d.text((M, 228), "半夜醒一下 ≠ 失眠", font=fb(74), fill=INK)
     # 大数字
     segs_center(d, 380, [("58.5", CORAL), ("%", CORAL)], fb(150))
     center(d, 558, "国人觉得自己「睡得浅」", fr(40), GREY)
@@ -124,7 +124,7 @@ def page2():
     d.text((bx0+44, by0+40), "真正的问题,不是「醒」", font=fb(48), fill=INK)
     d.text((bx0+44, by0+108), "是醒来之后的连锁反应", font=fr(38), fill=GREY)
     chain = ["半夜睁眼 → 抓起手机看时间",
-             "「怎么又醒了，几点了…」开始焦虑",
+             "「怎么又醒了,几点了…」开始焦虑",
              "越想睡越清醒,交感神经被点燃",
              "结果:把一次正常转醒,熬成了真失眠"]
     yy = by0+190
@@ -185,7 +185,7 @@ def page3():
         yy += 116
     # 底部条
     d.rounded_rectangle([M,1240,W-M,1340], radius=28, fill=INK)
-    segs_center(d, 1262, [("醒来≠失眠 ｜ ", WHITE), ("醒后焦虑+盯钟", CORAL), (",才变成失眠", WHITE)], fb(40))
+    segs_center(d, 1262, [("醒来 ≠ 失眠 ｜ ", WHITE), ("醒后焦虑+盯钟", CORAL), (",才变成失眠", WHITE)], fb(40))
     save(img, "3_正文_醒是身体的设计.png")
 
 # ============================================================
@@ -219,5 +219,6 @@ def page4():
     segs_center(d, yy+70, [("是连「醒」都管理好了", CORAL)], fb(38))
     save(img, "4_正文_普通人怎么抄.png")
 
-cover(); page2(); page3(); page4()
+# 封面已改由 gen_ep02_封面_mj.py(MJ水彩底图)专管,此处不再生成,避免覆盖正式封面
+page2(); page3(); page4()
 print("DONE")
