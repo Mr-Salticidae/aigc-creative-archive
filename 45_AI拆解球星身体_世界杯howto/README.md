@@ -15,9 +15,11 @@
 | 期数 | 选题 | 状态 |
 |---|---|---|
 | 01 | 睡眠篇（达芬奇睡眠法 vs C罗R90） | ✅ 封版，待发布 |
-| 02 | 待定（看01数据 / 评论点名决定） | ⬜ |
+| 02 | 夜醒篇（睡得浅/半夜醒/睡不着 × C罗R90周期+恢复舱） | ✅ 物料齐，待发布 |
+| 03 | 待定（看01/02数据 / 评论点名决定） | ⬜ |
 
-发布物料见 `00_发布物料/`，文案见 `发布文案_第01期_睡眠篇.md`。
+发布物料：01期见 `00_发布物料/`；02期见 `00_发布物料/02_夜醒篇/`（含4图+文案）。
+图生成脚本见 `06_脚本/`（正文图纯PIL精绘，可复用调参）。
 
 ---
 
@@ -32,6 +34,13 @@
 clean minimal editorial illustration, side view of a football player sleeping calmly with soft rounded shapes, a smooth glowing sleep-cycle curve flowing above showing five gentle 90-minute arches, flat vector style, bright cream white fresh mint and sky-blue palette, soft even lighting, generous negative space, modern friendly health-tech aesthetic, large clean title area at top --ar 3:4 --style raw --v 8.1 --no dark background, black, navy night, neon, cyberpunk, heavy shadows, text, logo, watermark, realistic photo
 ```
 > 信息图（对比图/数据图）不走MJ — 用脚本精确绘制，保证中文与数据准确。
+
+### 封面底图 MJ prompt · 第02期夜醒篇（已验证可用，水彩睡眠周期款）
+```
+soft watercolor gouache editorial illustration, an athlete sleeping peacefully on their back with a calm serene face, head resting in the lower corner of the frame, a single luminous sleep-cycle line flowing upward and across the sky with several gentle undulating peaks and valleys like ocean swells, translucent misty flowing shapes rising softly, muted palette of warm cream ivory background sage teal soft mint and pale sky-blue with one delicate glowing coral accent on the curve, airy painterly texture, soft even daylight, very generous negative space across the entire top third for a title, modern premium friendly health aesthetic --ar 3:4 --style raw --v 8.1 --no dark background, black, navy night, neon, cyberpunk, heavy shadows, harsh contrast, text, letters, logo, watermark, realistic photo, cluttered
+```
+> 出图后存 `01_素材_AI原图/`，再用 `06_脚本/gen_ep02_封面_mj.py` 叠双层标题（标题落左上留白区）。后续各期可复用此底图母题。
+> **构图经验**：底图人物若在某下角，标题放**对角**那一侧（如人物右下→标题左上），形成对角平衡、避免"文字+人物同侧偏沉"；镜像底图让人物**脸朝向标题**还能引导视线。第02期即采用「水平镜像+标题左上」。
 
 ---
 
