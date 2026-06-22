@@ -129,9 +129,8 @@ def build(src_path, out_path, size, cfg):
     # 楷体诗句 竖排, 略下沉 (错落)
     vtext(d, sub_x, line_top + s_step // 2 + int(base_h * 0.01) * SS, sub, f_kai(ss_), INK2, s_step)
 
-    # 角标 (左上, 横排小字)
+    # (左上角标已移除)
     mg = int(w * 0.055)
-    d.text((mg, int(h * 0.058)), cfg["tag"], font=f_kai(tg_), fill=INK2 + (210,))
 
     # 拉丁落款 (左下, 字距展开) + 暖金短线
     foot_y = int(h * 0.935)
