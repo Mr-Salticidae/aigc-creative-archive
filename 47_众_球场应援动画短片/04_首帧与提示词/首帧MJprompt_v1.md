@@ -4,6 +4,10 @@
 > 对应：`00_立项与待决问题/立项文档.md` v3 的 6 拍 / L0–L3 熔解阶梯
 > 共用参数：`--ar 16:9 --style raw`；统一 `--no text, watermark, signature, 3d render, plastic sheen, modern logos`
 
+## ✅ 签名已锁：纱影/织物透光（2026-06-23）
+全片皮影镜签名词由「leather filigree」改为 **`gauze and woven translucent textile shadow puppet`**（经纬/网纱透光、暖白底、赭褐+琥珀单色、斗笠长袍、平面背光剪影）。
+**锚 A = `成图/Frame2聚集_锚A候选01_纱影签名.png`**；后续 L0/L0′/L1 镜一律挂 `--sref <锚A图URL> --sw 80`。下方各条 prompt 的 `leather`/`filigree perforated` 字样按此替换为 `woven/gauze translucent textile`。
+
 ## 双 sref 锁法（开工前）
 - **锚 A＝皮影签名**（锁 Frame 1/2/3/6）：先抽 **Frame 2「聚集」** 当 hero，复制图 URL → 其余 L0/L1 镜加 `--sref <A> --sw 80`。
 - **锚 B＝近实·媒介余烬**（锁 Frame 4/5）：抽一张 Frame 4 当 hero → `--sref <B>`，并叠 `--sref <A> --sw 30` 保皮影 DNA。
@@ -20,7 +24,16 @@ Chinese shadow puppet theater pi ying xi, a single ordinary plain commoner in st
 
 ---
 
-### Frame 2 — 第2拍 L0｜聚集（抽这张做 hero / 锚A）
+### Frame 2 调密版 — 第2拍 L0｜聚集（人海汇拢，挂锚A）★现在抽这张
+> 首抽那张(锚A)是行进队列、当第1拍用；第2拍要的是"四面汇拢叠成一片人海"的密度。挂 `--sref <锚A图URL> --sw 80` 锁签名。
+```
+Chinese shadow theater, gauze and woven translucent textile shadow puppets, a huge dense crowd of ordinary plain commoners in conical hats and long robes converging from all directions and piling into one single packed mass, a living human sea filling the entire frame, overlapping translucent silhouettes layered many rows deep with no gaps, warm amber backlight glowing through a woven cloth screen, sepia and ochre monochrome, flat 2D backlit silhouettes, fine mesh net translucency showing through the bodies, articulated rod-puppet hint, atmospheric, museum quality --ar 16:9 --style raw --stylize 200 --chaos 6 --sref <锚A图URL> --sw 80 --no text, watermark, signature, 3d render, plastic sheen, modern logos
+```
+🌀 可灵钩子：`converging from all directions and piling into one mass` → 人从四面汇拢、叠成一片的小幅同向运动。
+
+---
+
+### Frame 2（原案·行进队列）— 已转用作第1拍/锚A参考
 ```
 Chinese shadow puppet theater pi ying xi, many ordinary plain commoners as flat 2D profile puppets converging from all sides into a single dense crowd, a living mass forming, overlapping translucent amber and ochre-red dyed hide, filigree perforated robes glowing as lace, articulated rod-puppet joints gradually aligning into one direction, warm lantern backlight, glowing translucent cloth screen, limited palette warm cream + amber + ochre red + gold-leaf, high contrast silhouettes, wide shot, hand-crafted folk-art leather texture, museum quality --ar 16:9 --style raw --stylize 200 --chaos 6 --no text, watermark, signature, 3d render, plastic sheen, modern logos
 ```
