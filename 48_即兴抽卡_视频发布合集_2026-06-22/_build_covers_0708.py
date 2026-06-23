@@ -203,18 +203,14 @@ def design_vogue(base, w, h, W, H, cfg, portrait, fx0, fx1):
     mx = (w - total) / 2 if portrait else int(w * 0.06)
     my = int(h * 0.052)
     tracked(d, mx, my, mh, fpl, WARMW + (255,), tr, anchor_y="a")
-    # 报头下细横线 + 期号
+    # 报头下细横线(纯图形分隔, 不挂期号/栏目信息)
     lyy = my + int(mhs * 1.02)
     if portrait:
         d.line([(mx + total * 0.18, lyy), (mx + total * 0.82, lyy)], fill=TERRA + (210,), width=max(2, SS))
-        d.text((w / 2, lyy + int(H * 0.022) * SS), cfg["issue"], font=f_deng(int(H * 0.020) * SS),
-               fill=WARMW + (235,), anchor="ma")
     else:
         d.line([(mx, lyy), (mx + total, lyy)], fill=TERRA + (210,), width=max(2, SS))
-        d.text((mx, lyy + int(H * 0.020) * SS), cfg["issue"], font=f_deng(int(H * 0.020) * SS),
-               fill=WARMW + (235,), anchor="la")
 
-    # ---- 封面语(汉仪中黑, 左下堆叠) ----
+    # ---- 封面语(微软雅黑, 左下堆叠, 精简至两行) ----
     ls = int(H * 0.040) * SS
     lh = int(ls * 1.62)
     bx = int(w * 0.066)
@@ -224,14 +220,12 @@ def design_vogue(base, w, h, W, H, cfg, portrait, fx0, fx1):
     for i, ln in enumerate(cfg["lines"]):
         d.text((bx, by + i * lh), ln, font=f_yh(ls), fill=WARMW + (250,), anchor="la")
 
-    # ---- 中文刊名 栖白 + 署名(右下) ----
+    # ---- 中文作品名 栖白(右下, 不挂作者/栏目署名) ----
     zh = cfg["zh"]
     zs = int(H * 0.052) * SS
-    zx = int(w * (0.93 if portrait else 0.95)); zy = int(h * 0.86)
+    zx = int(w * (0.93 if portrait else 0.95)); zy = int(h * 0.87)
     tracked(d, zx - htext_len(d, zh, f_song(zs), int(zs * 0.18)), zy, zh, f_song(zs),
             WARMW + (250,), int(zs * 0.18), anchor_y="a")
-    d.text((zx, zy + int(zs * 1.18)), cfg["byline"], font=f_deng(int(H * 0.018) * SS),
-           fill=WARMW + (215,), anchor="ra")
 
     out = base.copy()
     shadow, dy = soft_shadow(txt, w, h, k=0.55, blur=5)
@@ -272,9 +266,8 @@ GROUPS = {
         design="mask", title="假面", sub="替我哭的那张脸", lat="MASQUE", seal="戲",
         pick="07_03.png"),
     "08_栖白_白西装编辑感": dict(
-        design="vogue", masthead="BLANC", zh="栖白", issue="ÉDITION  N°08",
-        byline="跳蛛先生 · 即兴抽卡",
-        lines=["卷发 与 白西装", "格子间里的松弛", "下班前最后一束光"],
+        design="vogue", masthead="BLANC", zh="栖白",
+        lines=["卷发 与 白西装", "下班前最后一束光"],
         pick="08_01.png"),
 }
 
