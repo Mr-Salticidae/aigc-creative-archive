@@ -7,6 +7,14 @@ Desktop.ini
 # Keep downloaded zip packages out of the project repo.
 *.zip
 
+# 渲染产物 / 中间文件 / 参考素材不入库（原始素材 raw_clips、patch_clips、成品母带等仍版本化）。
+# 已入库的大文件用 git rm --cached 取消跟踪；磁盘文件保留。
+**/_work/
+**/05_成片/
+**/02_素材/reference/
+ai-video-flow-remotion/public/video/
+ai-video-flow-remotion/production/assets/
+
 # Node / Remotion local dependencies and render outputs
 **/node_modules/
 **/out/
