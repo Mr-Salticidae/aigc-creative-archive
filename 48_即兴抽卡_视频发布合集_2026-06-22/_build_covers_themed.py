@@ -22,6 +22,8 @@ f_hei  = lambda s: ImageFont.truetype(os.path.join(FONTS, "simhei.ttf"), s)     
 f_kai  = lambda s: ImageFont.truetype(os.path.join(FONTS, "simkai.ttf"), s)        # 楷体
 f_yh   = lambda s: ImageFont.truetype(os.path.join(FONTS, "msyh.ttc"), s)          # 微软雅黑(封面语)
 f_deng = lambda s: ImageFont.truetype(os.path.join(FONTS, "Dengl.ttf"), s)         # 等线细
+f_fang = lambda s: ImageFont.truetype(os.path.join(FONTS, "simfang.ttf"), s)       # 仿宋(细劲优雅, 梦核留白)
+f_yhl  = lambda s: ImageFont.truetype(os.path.join(FONTS, "msyhl.ttc"), s)         # 微软雅黑 Light
 
 
 def f_play(s, weight="Black"):
@@ -54,6 +56,14 @@ ICE   = (36, 49, 66)      # 冷墨蓝(主标) — 高调留白上用深字才读
 ICE2  = (62, 80, 102)     # 副标 冷青灰
 GLAZE = (86, 150, 192)    # 冰蓝(细线/拉丁) — 呼应蓝瞳与刃光
 HALO  = (246, 249, 251)   # 文字白色柔光晕(深字浅底分离用)
+
+# ---- 10 蝶隐 调色(梦核薄纱/暖雾·珍珠留白·西幻精灵) ----
+# 旧版葡萄紫宋体过闷、缺高级感; 改走「珍珠浅字 + 暖柔暗角 + 香槟细金」编辑式留白
+PEARL = (244, 238, 239)   # 暖珍珠白(主标) — 软光留白里的空灵, 靠柔暗角托出
+PEARL2= (223, 211, 214)   # 副标 略淡珍珠
+CHAMP = (203, 170, 150)   # 香槟玫瑰金(细线/拉丁) — 低饱和奢感, 呼应暖肤光与花
+VIGN  = (50, 39, 47)      # 左上柔暗角(暖aubergine) — 托浅字, 不破梦核高调
+SHF   = (44, 33, 40)      # 浅字柔投影(暖暗)
 
 
 # ============ 通用脚手架 ============
@@ -292,6 +302,56 @@ def design_ether(base, w, h, W, H, cfg, portrait):
     return out
 
 
+# ============ 设计 D: 10 蝶隐 — 梦核薄纱·珍珠留白(编辑式·西幻精灵) ============
+def design_fey(base, w, h, W, H, cfg, portrait):
+    yy, xx = np.mgrid[0:h, 0:w]
+    # 左上柔暗角(暖aubergine渐隐) — 把珍珠浅字从亮雾里托出来, 软而不破梦核高调
+    cx, cy = 0.04 * w, -0.02 * h
+    rad = np.clip(1 - (((xx - cx) / (0.56 * w)) ** 2 + ((yy - cy) / (0.60 * h)) ** 2), 0, 1) ** 1.45
+    base = Image.alpha_composite(base, scrim_layer(w, h, rad * 122, VIGN))
+
+    txt = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(txt)
+    title, sub = cfg["title"], cfg["sub"]
+
+    # 仿宋细劲, 大字距/大行距求留白高级感
+    ts = int(H * 0.128) * SS
+    ss_ = int(H * 0.029) * SS
+    t_step = int(ts * 1.30)
+    s_step = int(ss_ * 1.52)
+
+    mgx = int(w * (0.092 if portrait else 0.052))
+    title_x = mgx + ts // 2
+    line_x = title_x + ts // 2 + int(H * 0.028) * SS
+    sub_x = line_x + int(H * 0.024) * SS + ss_ // 2
+
+    block_h = len(title) * t_step
+    cy0 = int(h * (0.30 if portrait else 0.40))
+    t_top = cy0 - block_h // 2 + t_step // 2
+    vtext(d, title_x, t_top, title, f_fang(ts), PEARL, t_step)
+
+    # 细香槟竖线(1px级, 克制)
+    line_top = t_top - t_step // 2 + int(ts * 0.16)
+    line_bot = t_top + block_h - t_step // 2 + int(ts * 0.04)
+    d.line([(line_x, line_top), (line_x, line_bot)], fill=CHAMP + (215,), width=max(1, SS))
+
+    # 副标(仿宋小字竖排, 略淡珍珠)
+    vtext(d, sub_x, line_top + s_step // 2 + int(H * 0.006) * SS, sub, f_fang(ss_), PEARL2, s_step)
+
+    # 拉丁落款(左下) — Playfair 小号 + 香槟短线, 编辑式签名
+    foot_y = int(h * 0.948)
+    d.line([(mgx, foot_y), (mgx + int(H * 0.058) * SS, foot_y)], fill=CHAMP + (205,), width=max(1, SS))
+    fpl = f_play(int(H * 0.025) * SS, "Regular")
+    tracked(d, mgx, foot_y + int(H * 0.012) * SS, cfg["lat"], fpl, CHAMP + (235,),
+            int(H * 0.011) * SS, anchor_y="a")
+
+    out = base.copy()
+    shadow, dy = soft_shadow(txt, w, h, rgb=SHF, k=0.50, blur=6, dy=2)
+    out.alpha_composite(shadow, (0, dy * SS))
+    out.alpha_composite(txt)
+    return out
+
+
 # ============ 总装 ============
 def build(src_path, out_path, size, cfg):
     W, H = size
@@ -314,12 +374,18 @@ def build(src_path, out_path, size, cfg):
         else:
             base, fx0, fx1 = fit_landscape(src, w, h, (16, 17, 21), blend=0.40)
             out = design_vogue(base, w, h, W, H, cfg, False, fx0, fx1)
-    else:  # ether (高调薄雾·冷调)
+    elif cfg["design"] == "ether":  # 高调薄雾·冷调
         if portrait:
             base = cover_fit(src, w, h, up=0.20)
         else:
             base, _fx0, _fx1 = fit_landscape(src, w, h, (206, 217, 227), blend=0.30)
         out = design_ether(base, w, h, W, H, cfg, portrait)
+    else:  # fey (梦核薄纱·暖雾)
+        if portrait:
+            base = cover_fit(src, w, h, up=0.18)
+        else:
+            base, _fx0, _fx1 = fit_landscape(src, w, h, (214, 198, 206), blend=0.28)
+        out = design_fey(base, w, h, W, H, cfg, portrait)
 
     out = out.convert("RGB").resize((W, H), Image.LANCZOS)
     out.save(out_path, "PNG")
@@ -336,6 +402,9 @@ GROUPS = {
     "09_霜瞳_银发蓝瞳cosplay": dict(
         design="ether", title="霜瞳", sub="眼里落了雪，等谁来化", lat="FROST",
         pick="09_01.png"),
+    "10_蝶隐_白发精灵紫蝶": dict(
+        design="fey", title="蝶隐", sub="轻得像一场梦", lat="PSYCHE",
+        pick="10_01.png"),
 }
 
 
@@ -348,7 +417,11 @@ def pick_cover(key, cfg):
 
 
 def main():
+    import sys
+    only = sys.argv[1] if len(sys.argv) > 1 else None   # 传前缀(如 "10_")可只重建该组, 不动已封版的旧组
     for key, cfg in GROUPS.items():
+        if only and not key.startswith(only):
+            continue
         src = pick_cover(key, cfg)
         cdir = os.path.join(ROOT, key, "封面")
         os.makedirs(cdir, exist_ok=True)
