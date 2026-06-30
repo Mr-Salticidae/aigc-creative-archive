@@ -42,7 +42,7 @@ d.text((M+px,72+py-2),lab,font=f,fill=WHITE)
 
 # 设问(珊瑚点 + 灰青小字)
 yq=172; d.ellipse([M,yq+16,M+17,yq+33],fill=CORAL)
-d.text((M+32,yq),"违心服从,内耗到怀疑人生?",font=fr(38),fill=GREY)
+d.text((M+32,yq),"违心服从，内耗到怀疑人生？",font=fr(38),fill=GREY)
 
 # 反转大标题(珊瑚强调"滚刀肉")
 y=258; ft=fb(108)
@@ -52,6 +52,6 @@ for line in [[("我偏不改",INK)],[("把自己炖成",INK)],[("「滚刀肉」
         d.text((cx,y),t,font=ft,fill=c); cx+=tw(t,ft)
     y+=122
 # 副标题(与标题块拉开间距,整体更透气)
-d.text((M,y+50),"油盐不进,职场反而伤不到我",font=fr(42),fill=GREY)
+d.text((M,y+50),"油盐不进，职场反而伤不到我",font=fr(42),fill=GREY)
 
 img.save(OUT); print("saved",OUT)

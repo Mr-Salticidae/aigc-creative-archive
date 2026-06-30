@@ -40,8 +40,8 @@ soft watercolor gouache editorial illustration, a person reclining calmly and la
 ---
 
 ## 出图前自检 checklist
-**标点**(账号 house style:逗号/冒号/问号半角、句号/顿号全角,**全篇各类型统一不混用**)
-- [x] 逗号全篇半角 `,`;句号全篇全角 `。`;顿号 `、`;冒号半角 `:`;问号半角 `?`
+**标点**(**全部全角**,中文里夹半角标点会发挤、没呼吸感 —— 此为账号铁律)
+- [x] 逗号 `，`、句号 `。`、顿号 `、`、冒号 `：`、问号 `？`、分号 `；`、引号 `“”`/`「」` 全部全角
 - [x] 无渲染豆腐块(雅黑无彩色 emoji,图内禁 emoji;emoji 只放发布文案)
 
 **版式**
